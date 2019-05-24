@@ -1,0 +1,33 @@
+{
+  "name": "cypress-shadow-dom",
+  "version": "0.0.1",
+  "description": "Extend Cypress commands with shadow DOM support",
+  "main": "index.js",
+  "engines": {
+    "node": ">=8.2.1"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/abramenal/cypress-shadow-dom.git"
+  },
+  "keywords": [
+    "cypress",
+    "command",
+    "shadow",
+    "dom",
+    "e2e",
+    "test"
+  ],
+  "author": "abramenal <pavel.auramenka@gmail.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/abramenal/cypress-shadow-dom/issues"
+  },
+  "homepage": "https://github.com/abramenal/cypress-shadow-dom#readme",
+  "peerDependencies": {
+    "cypress": "^3.0.0"
+  }
+}

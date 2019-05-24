@@ -1,2 +1,6 @@
 # cypress-shadow-dom
-Brings shadow DOM support with custom Cypress commands
+
+Extend Cypress commands with shadow DOM support
+
+https://npm.im/cypress-shadow-dom
+Coming really soon...
