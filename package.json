@@ -2,17 +2,6 @@
   "name": "cypress-shadow-dom",
   "version": "0.0.1",
   "description": "Extend Cypress commands with shadow DOM support",
-  "main": "index.js",
-  "engines": {
-    "node": ">=8.2.1"
-  },
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/abramenal/cypress-shadow-dom.git"
-  },
   "keywords": [
     "cypress",
     "command",
@@ -22,12 +11,36 @@
     "test"
   ],
   "author": "abramenal <pavel.auramenka@gmail.com>",
+  "homepage": "https://github.com/abramenal/cypress-shadow-dom#readme",
   "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/abramenal/cypress-shadow-dom.git"
+  },
   "bugs": {
     "url": "https://github.com/abramenal/cypress-shadow-dom/issues"
   },
-  "homepage": "https://github.com/abramenal/cypress-shadow-dom#readme",
+  "main": "dist/bundle.js",
+  "types": "./index.d.ts",
+  "engines": {
+    "node": ">=8.2.1"
+  },
+  "scripts": {
+    "build": "microbundle build -i index.js -f cjs",
+    "lint": "eslint index.js src",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
   "peerDependencies": {
     "cypress": "^3.0.0"
+  },
+  "devDependencies": {
+    "eslint": "^5.16.0",
+    "eslint-config-airbnb-base": "^13.1.0",
+    "eslint-config-prettier": "^4.3.0",
+    "eslint-plugin-import": "^2.17.3",
+    "eslint-plugin-prettier": "^3.1.0",
+    "husky": "^2.4.1",
+    "microbundle": "^0.11.0",
+    "prettier": "^1.18.2"
   }
 }

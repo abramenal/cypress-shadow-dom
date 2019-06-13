@@ -1,5 +1,12 @@
+.all-contributorsrc
 .editorconfig
+.eslintignore
+.eslintrc
 .github
 .gitignore
+.huskyrc
+.prettierrc
 index.js
+src
 CONTRIBUTING.md
+example
