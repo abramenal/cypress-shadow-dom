@@ -12,6 +12,6 @@
   },
   "globals": {
     "Cypress": true,
-    "cy": true
+    "CustomEvent": true
   }
 }

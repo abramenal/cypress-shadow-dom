@@ -60,10 +60,5 @@ typings/
 # next.js build output
 .next
 
+.cache
 dist
-
-example/.cache
-example/dist
-example/node_module
-
-.DS_Store

@@ -15,7 +15,12 @@ export default function shadowGet(rootSubject, selector) {
     }
 
     if (currentElement) {
-      currentElement = currentElement.querySelector(selectorPath[i]);
+      if (selectorPath.length === i + 1) {
+        // it's the last invocation, so should be qsAll
+        currentElement = currentElement.querySelectorAll(selectorPath[i]);
+      } else {
+        currentElement = currentElement.querySelector(selectorPath[i]);
+      }
     }
 
     if (!currentElement) {
@@ -23,5 +28,13 @@ export default function shadowGet(rootSubject, selector) {
     }
   }
 
-  return currentElement;
+  Cypress.log({
+    name: 'shadowGet',
+    message: `'${selector}'`,
+    consoleProps: () => ({
+      selector,
+    }),
+  });
+
+  return Cypress.cy.wrap(currentElement, { log: false });
 }
