@@ -1,6 +1,6 @@
 # cypress-shadow-dom
 
-[![All Contributors](https://img.shields.io/badge/all_contributors-0-orange.svg?style=flat-square)](#contributors) [![GitHub license](https://img.shields.io/badge/license-MIT-blue.svg)](https://github.com/abramenal/cypress-shadow-dom/blob/master/LICENSE) [![npm version](https://img.shields.io/npm/v/cypress-shadow-dom.svg?style=flat&color=important)](https://www.npmjs.com/package/cypress-shadow-dom) [![All Contributors](https://img.shields.io/badge/all_contributors-21-yellow.svg)](#contributors)
+[![GitHub license](https://img.shields.io/badge/license-MIT-blue.svg)](https://github.com/abramenal/cypress-shadow-dom/blob/master/LICENSE) [![npm version](https://img.shields.io/npm/v/cypress-shadow-dom.svg?style=flat&color=important)](https://www.npmjs.com/package/cypress-shadow-dom) [![All Contributors](https://img.shields.io/badge/all_contributors-0-yellow.svg)](#contributors)
 
 Extend Cypress commands with shadow DOM support
 
