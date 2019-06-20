@@ -12,13 +12,9 @@ declare namespace Cypress {
     shadowClick(options?: EventOptions): Chainable<Subject>;
     shadowGet(selector: string): Chainable<Subject>;
     shadowContains(content: string): Chainable<Subject>;
-    shadowTrigger(eventName: string, options?: EventOptions): Chainable<Subject>;
+    shadowTrigger(eventName: string, eventOptions?: EventOptions): Chainable<Subject>;
     shadowFind(selector: string): Chainable<Subject>;
     shadowFirst(): Chainable<Subject>;
     shadowLast(): Chainable<Subject>;
-
-    shadowShould(): throws;
-    shadowEq(): throws;
-    shadowSelect(): throws;
   }
 }
