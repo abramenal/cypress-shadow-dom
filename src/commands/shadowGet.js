@@ -1,10 +1,11 @@
 import { InternalError, ERR_TYPES } from '../error';
 
-export default function shadowGet(rootSubject, selector) {
+export default function shadowGet(rootSubject, selector, options = { selectMultiple: true }) {
   if (!selector) {
     throw new InternalError(ERR_TYPES.MISSING_SELECTOR);
   }
 
+  const { selectMultiple } = options;
   const selectorPath = selector.split(' ');
   let currentElement = rootSubject;
 
@@ -15,10 +16,13 @@ export default function shadowGet(rootSubject, selector) {
     }
 
     if (currentElement) {
-      if (selectorPath.length === i + 1) {
-        // it's the last invocation, so should be qsAll
+      if (selectMultiple && selectorPath.length === i + 1) {
         currentElement = currentElement.querySelectorAll(selectorPath[i]);
       } else {
+        /**
+         * If current selector is the last one we usually select multiple items
+         * but may override this behavior by providing `selectMultiple` as false
+         */
         currentElement = currentElement.querySelector(selectorPath[i]);
       }
     }

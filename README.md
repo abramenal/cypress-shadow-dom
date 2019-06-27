@@ -11,6 +11,14 @@ This package adds a custom [Cypress][cypress] command that allows you to make an
 - [Installation](#installation)
 - [Usage](#usage)
 - [API](#api)
+  - [Chaining starts with document](#chaining-starts-with-document)
+  - [shadowGet](#shadowGet)
+  - [shadowFind](#shadowFind)
+  - [shadowFirst](#shadowFirst)
+  - [shadowLast](#shadowLast)
+  - [shadowContains](#shadowContains)
+  - [shadowTrigger](#shadowTrigger)
+  - [shadowClick](#shadowTrigger)
 - [Contributors](#contributors)
 - [License](#license)
 
@@ -44,19 +52,39 @@ See more usage guidelines in [example](./example).
 
 ## API
 
-Here's a set of available commands:
+### Chaining starts with document
 
-### Lookup & traversal
-
-To start querying shadow DOM elements you need to begin a chain with document then executing:
+You must start the chain with getting reference to the document object, doing:
 
 ```javascript
-cy.document().shadowGet(selector);
+cy.document({ log: false }).anyOtherChainMethod();
+```
+
+Here's a set of available commands:
+
+### shadowGet
+
+Querying shadow DOM elements is made with:
+
+```javascript
+cy.document().shadowGet(selector, selectionOptions);
 ```
 
 - `{String} selector` – a string containing specific selectors separated by spaces. It **requires** all the shadowed DOM nodes to be in selector. See more in [example](./example)
+- `{Object?} selectionOptions` contains:
+  - `{Boolean?} selectMultiple` – find all the matching elements within given selector, or optionally select only first matching one. Defailts to `true`
 
-To find something specifically within found shadow DOM element:
+For example,
+
+```javascript
+shadowGet('todo-list todo-list-item', { selectMultiple: false });
+```
+
+will give us only the first list item.
+
+### shadowFind
+
+Additional querying within found shadow DOM elements:
 
 ```javascript
 cySubject.shadowFind(selector);
@@ -64,11 +92,15 @@ cySubject.shadowFind(selector);
 
 - `{String} selector` – a string containing specific selectors separated by spaces. It **requires** all the shadowed DOM nodes to be in selector. See more in [example](./example)
 
+### shadowFirst
+
 To take the first element from found shadow DOM collection:
 
 ```javascript
 cySubject.shadowFirst();
 ```
+
+### shadowLast
 
 To take the last element from found shadow DOM collection:
 
@@ -76,7 +108,7 @@ To take the last element from found shadow DOM collection:
 cySubject.shadowLast();
 ```
 
-### Text content validation
+### shadowContains
 
 To validate some element's text content:
 
@@ -86,7 +118,7 @@ cySubhect.shadowContains(content);
 
 - `{String} content` – a string containing any text for lookup. See more in [example](./example)
 
-### Working with events
+### shadowTrigger
 
 To trigger any event:
 
@@ -95,21 +127,29 @@ cySubject.shadowTrigger(eventName, eventOptions);
 ```
 
 - `{String} eventName` – a string containing any text for lookup. See more in [example](./example)
+- `{Object?} eventOptions` contains:
+  - `{Boolean?} log`
+  - `{Boolean?} force`
+  - `{Boolean?} bubbles`
+  - `{Boolean?} cancelable`
+  - `{Number?} timeout`
+  - `{Boolean?} composed`
 
-`{Object?} eventOptions` contains:
-
-- `{Boolean?} log`
-- `{Boolean?} force`
-- `{Boolean?} bubbles`
-- `{Boolean?} cancelable`
-- `{Number?} timeout`
-- `{Boolean?} composed`
+### shadowClick
 
 A shorthand to trigger a click event:
 
 ```javascript
 cySubject.shadowClick(eventOptions);
 ```
+
+- `{Object?} eventOptions` contains:
+  - `{Boolean?} log`
+  - `{Boolean?} force`
+  - `{Boolean?} bubbles`
+  - `{Boolean?} cancelable`
+  - `{Number?} timeout`
+  - `{Boolean?} composed`
 
 ## Contributors
 

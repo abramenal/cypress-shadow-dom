@@ -24,4 +24,6 @@
 // -- This is will overwrite an existing command --
 // Cypress.Commands.overwrite("visit", (originalFn, url, options) => { ... })
 
-import 'cypress-shadow-dom';
+import '../../../index';
+// -- In your application the import above should be replaced with: --
+// import "cypress-shadow-dom"
