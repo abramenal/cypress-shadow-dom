@@ -8,9 +8,13 @@ declare namespace Cypress {
     composed?: Boolean;
   };
 
+  type SelectionOptions = {
+    selectMultiple?: Boolean;
+  };
+
   interface Chainable<Subject> {
     shadowClick(options?: EventOptions): Chainable<Subject>;
-    shadowGet(selector: string): Chainable<Subject>;
+    shadowGet(selector: string, selectionOptions: SelectionOptions): Chainable<Subject>;
     shadowContains(content: string): Chainable<Subject>;
     shadowTrigger(eventName: string, eventOptions?: EventOptions): Chainable<Subject>;
     shadowFind(selector: string): Chainable<Subject>;

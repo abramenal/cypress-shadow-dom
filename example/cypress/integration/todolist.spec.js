@@ -15,12 +15,20 @@ describe('Todo List', () => {
       .should('eq', 2);
   });
 
-  it('displays each item title correctly', () => {
+  it('displays first item title correctly', () => {
     cy.document({ log: false })
       .shadowGet('todo-list todo-list-item')
       .shadowFirst()
       .shadowContains('Read some books');
 
+    /* Or same thing with other command */
+    cy.document({ log: false })
+      .shadowGet('todo-list')
+      .shadowFind('todo-list-item')
+      .shadowContains('Read some books');
+  });
+
+  it('displays last item title correctly', () => {
     cy.document({ log: false })
       .shadowGet('todo-list todo-list-item')
       .shadowLast()
