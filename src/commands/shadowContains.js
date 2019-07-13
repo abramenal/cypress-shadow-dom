@@ -1,7 +1,11 @@
 import { InternalError, ERR_TYPES } from '../error';
 
 export default function shadowContains(subject, content) {
-  const rawElementsList = subject[0].shadowRoot.querySelectorAll('*');
+  /**
+   * shadowContains should both work with shadow'ish and regular DOM elements
+   */
+  const baseElement = subject[0].shadowRoot || subject[0];
+  const rawElementsList = baseElement.querySelectorAll('*');
   const rawElementContainingText = [].find.call(rawElementsList, rawEl => RegExp(content, 'i').test(rawEl.innerText));
 
   if (!rawElementContainingText) {
