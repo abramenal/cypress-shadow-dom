@@ -3,9 +3,9 @@ import { validateElement, validateSubject } from '../../validators';
 
 export default function shadowEq(subject, index) {
   validateSubject(subject);
-  validateIndex(index);
+  validateIndex(index, subject.length);
 
-  const element = subject[index < 0 ? subject.length - index : index];
+  const element = subject[index < 0 ? subject.length + index : index];
   validateElement(element);
 
   Cypress.log({

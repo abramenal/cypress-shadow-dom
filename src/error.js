@@ -25,7 +25,7 @@ export const ERR_TYPES = {
   },
   INVALID_INDEX: {
     message: 'Index is not valid',
-    tip: 'A number indicates the index to find the element at within an array of elements',
+    tip: 'It should be a positive or negative number within a range of the items collection',
   },
   INVALID_TEXT: {
     message: 'Text is not valid',

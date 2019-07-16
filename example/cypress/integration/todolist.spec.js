@@ -19,9 +19,7 @@ describe('Todo List', () => {
     /* Or, same thing via */
     cy.shadowGet('todo-list')
       .shadowFind('todo-list-item')
-
-      // TODO: test negative values
-      .shadowEq(-2)
+      .shadowEq(0)
       .shadowContains('Read some books');
   });
 
@@ -34,7 +32,7 @@ describe('Todo List', () => {
     /* Or, same thing via */
     cy.shadowGet('todo-list')
       .shadowFind('todo-list-item')
-      .shadowEq()
+      .shadowEq(-1)
       .shadowContains('Buy some serials');
   });
 
