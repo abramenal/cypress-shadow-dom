@@ -8,10 +8,15 @@
     "implicit-arrow-linebreak": "off",
     "max-len": ["error", { "code": 120 }],
     "no-use-before-define": ["error", { "functions": false }],
-    "object-curly-newline": ["error", { "consistent": true }]
+    "object-curly-newline": ["error", { "consistent": true }],
+    "import/prefer-default-export": "off"
   },
   "globals": {
     "Cypress": true,
-    "CustomEvent": true
+    "CustomEvent": true,
+    "Document": true,
+    "Element": true,
+    "Event": true,
+    "KeyboardEvent": true
   }
 }
