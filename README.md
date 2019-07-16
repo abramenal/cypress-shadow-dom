@@ -11,14 +11,15 @@ This package adds a custom [Cypress][cypress] command that allows you to make an
 - [Installation](#installation)
 - [Usage](#usage)
 - [API](#api)
-  - [Chaining starts with document](#chaining-starts-with-document)
   - [shadowGet](#shadowGet)
   - [shadowFind](#shadowFind)
+  - [shadowEq](#shadowEq)
   - [shadowFirst](#shadowFirst)
   - [shadowLast](#shadowLast)
   - [shadowContains](#shadowContains)
   - [shadowTrigger](#shadowTrigger)
   - [shadowClick](#shadowTrigger)
+  - [shadowType](#shadowType)
 - [Contributors](#contributors)
 - [License](#license)
 
@@ -42,23 +43,15 @@ import 'cypress-shadow-dom';
 Here is a basic example:
 
 ```javascript
-cy.document({ log: false })
-  .shadowGet('todo-list todo-list-item')
+cy.shadowGet('todo-list')
+  .shadowFind('todo-list-item')
   .its('length')
-  .should('eq', 2);
+  .should('eq', 4);
 ```
 
-See more usage guidelines in [example](./example).
+See more usage guidelines in [example](./example). It also contains all the available commands in their natural use case.
 
 ## API
-
-### Chaining starts with document
-
-You must start the chain with getting reference to the document object, doing:
-
-```javascript
-cy.document({ log: false }).anyOtherChainMethod();
-```
 
 Here's a set of available commands:
 
@@ -67,37 +60,47 @@ Here's a set of available commands:
 Querying shadow DOM elements is made with:
 
 ```javascript
-cy.document().shadowGet(selector, selectionOptions);
+cy.shadowGet(selector);
 ```
 
-- `{String} selector` – a string containing specific selectors separated by spaces. It **requires** all the shadowed DOM nodes to be in selector. See more in [example](./example)
-- `{Object?} selectionOptions` contains:
-  - `{Boolean?} selectMultiple` – find all the matching elements within given selector, or optionally select only first matching one. Defailts to `true`
+- `{String} selector` – a single selector which usually represents root shadow DOM elements you want to start with
 
-For example,
-
-```javascript
-shadowGet('todo-list todo-list-item', { selectMultiple: false });
-```
-
-will give us only the first list item.
+This command returns `shadowSubject` that is a valid subject to execute any command below.
 
 ### shadowFind
 
 Additional querying within found shadow DOM elements:
 
 ```javascript
-cySubject.shadowFind(selector);
+shadowSubject.shadowFind(selector);
 ```
 
-- `{String} selector` – a string containing specific selectors separated by spaces. It **requires** all the shadowed DOM nodes to be in selector. See more in [example](./example)
+- `{String} selector` – a single selector which helps to get nested shadow DOM element under the root element
+
+Example:
+
+```javascript
+cy.shadowGet('todo-list').shadowFind('todo-form');
+```
+
+This command returns `shadowSubject` that is a valid subject to execute any command below.
+
+### shadowEq
+
+To take the nth element from found shadow DOM collection:
+
+```javascript
+shadowSubject.shadowEq(index);
+```
+
+- `{Number} index` – a positive or negative number within given collection range
 
 ### shadowFirst
 
 To take the first element from found shadow DOM collection:
 
 ```javascript
-cySubject.shadowFirst();
+shadowSubject.shadowFirst();
 ```
 
 ### shadowLast
@@ -105,7 +108,7 @@ cySubject.shadowFirst();
 To take the last element from found shadow DOM collection:
 
 ```javascript
-cySubject.shadowLast();
+shadowSubject.shadowLast();
 ```
 
 ### shadowContains
@@ -113,20 +116,20 @@ cySubject.shadowLast();
 To validate some element's text content:
 
 ```javascript
-cySubhect.shadowContains(content);
+shadowSubject.shadowContains(content);
 ```
 
-- `{String} content` – a string containing any text for lookup. See more in [example](./example)
+- `{String} content` – a string containing any text for lookup
 
 ### shadowTrigger
 
 To trigger any event:
 
 ```javascript
-cySubject.shadowTrigger(eventName, eventOptions);
+shadowSubject.shadowTrigger(eventName, eventOptions);
 ```
 
-- `{String} eventName` – a string containing any text for lookup. See more in [example](./example)
+- `{String} eventName` – a string containing any text for lookup
 - `{Object?} eventOptions` contains:
   - `{Boolean?} log`
   - `{Boolean?} force`
@@ -140,7 +143,7 @@ cySubject.shadowTrigger(eventName, eventOptions);
 A shorthand to trigger a click event:
 
 ```javascript
-cySubject.shadowClick(eventOptions);
+shadowSubject.shadowClick(eventOptions);
 ```
 
 - `{Object?} eventOptions` contains:
@@ -150,6 +153,16 @@ cySubject.shadowClick(eventOptions);
   - `{Boolean?} cancelable`
   - `{Number?} timeout`
   - `{Boolean?} composed`
+
+### shadowType
+
+Types some text content inside given shadow DOM input control:
+
+```javascript
+shadowSubject.shadowType(content);
+```
+
+- `{String} content` – a string containing any text
 
 ## Contributors
 
