@@ -1,16 +1,27 @@
 import { validateElement, validateSelector } from '../../validators';
+import resolveValue from '../../helpers/resolveValue';
 
-export default selector => {
+export default (selector, options) => {
   validateSelector(selector);
 
-  const element = Cypress.$(selector);
-  validateElement(element);
-
-  Cypress.log({
-    name: 'shadowGet',
-    message: `'${selector}'`,
-    consoleProps: () => ({ selector }),
+  Cypress._.defaults(options, {
+    log: true,
+    timeout: 10000,
   });
 
-  return element;
+  const elGetter = () => {
+    return Cypress.$(selector);
+  };
+
+  return resolveValue(elGetter, options).then(element => {
+    // validateElement(element);
+
+    Cypress.log({
+      name: 'shadowGet',
+      message: `'${selector}'`,
+      consoleProps: () => ({ selector, element }),
+    });
+
+    return element;
+  });
 };
