@@ -2,7 +2,8 @@
   "extends": "airbnb-base",
   "plugins": ["cypress", "prettier"],
   "env": {
-    "browser": true
+    "browser": true,
+    "cypress/globals": true
   },
   "rules": {
     "prettier/prettier": "error",

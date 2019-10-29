@@ -10,5 +10,13 @@
     <h1>Todo list</h1>
     <todo-list></todo-list>
     <script src="./index.js"></script>
+    <script>
+      setTimeout(() => {
+        const el = document.createElement('todo-list-item');
+        el.setAttribute('title', 'async item');
+        el.setAttribute('done', false);
+        document.body.appendChild(el);
+      }, 5000);
+    </script>
   </body>
 </html>

@@ -1,4 +1,4 @@
-import { validateElement, validateSelector } from '../../validators';
+import { validateSelector } from '../../validators';
 import resolveValue from '../../helpers/resolveValue';
 
 export default (selector, options) => {
@@ -14,8 +14,6 @@ export default (selector, options) => {
   };
 
   return resolveValue(elGetter, options).then(element => {
-    // validateElement(element);
-
     Cypress.log({
       name: 'shadowGet',
       message: `'${selector}'`,
