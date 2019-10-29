@@ -1,3 +1,5 @@
+/// <reference types="cypress" />
+
 declare namespace Cypress {
   type EventOptions = {
     log?: Boolean;
@@ -9,7 +11,6 @@ declare namespace Cypress {
   };
 
   type CommandOptions = {
-    log?: Boolean;
     timeout?: Number;
   };
 
