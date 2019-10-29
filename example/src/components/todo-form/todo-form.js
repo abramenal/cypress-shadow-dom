@@ -18,6 +18,7 @@ export default class TodoForm extends HTMLElement {
     this.inputEl = this.root.querySelector('input');
 
     this.formEl.addEventListener('submit', this.handleSubmit.bind(this));
+    // eslint-disable-next-line no-console
     this.inputEl.addEventListener('change', e => console.log('change occurred', e));
   }
 
