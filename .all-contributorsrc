@@ -18,6 +18,15 @@
       "contributions": [
         "bug"
       ]
+    },
+    {
+      "login": "joshuadelange",
+      "name": "Joshua de Lange",
+      "avatar_url": "https://avatars3.githubusercontent.com/u/525349?v=4",
+      "profile": "http://joshuadelange.com",
+      "contributions": [
+        "bug"
+      ]
     }
   ],
   "contributorsPerLine": 7

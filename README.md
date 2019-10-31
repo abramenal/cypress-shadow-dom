@@ -1,6 +1,6 @@
 # cypress-shadow-dom
 
-[![GitHub license](https://img.shields.io/badge/license-MIT-blue.svg)](https://github.com/abramenal/cypress-shadow-dom/blob/master/LICENSE) [![npm version](https://img.shields.io/npm/v/cypress-shadow-dom.svg?style=flat&color=important)](https://www.npmjs.com/package/cypress-shadow-dom) [![All Contributors](https://img.shields.io/badge/all_contributors-1-orange.svg?style=flat-square)](#contributors)
+[![GitHub license](https://img.shields.io/badge/license-MIT-blue.svg)](https://github.com/abramenal/cypress-shadow-dom/blob/master/LICENSE) [![npm version](https://img.shields.io/npm/v/cypress-shadow-dom.svg?style=flat&color=important)](https://www.npmjs.com/package/cypress-shadow-dom) [![All Contributors](https://img.shields.io/badge/all_contributors-2-orange.svg?style=flat-square)](#contributors)
 
 Extend Cypress commands with shadow DOM support
 
@@ -173,6 +173,7 @@ Thanks goes to these wonderful people ([emoji key](https://allcontributors.org/d
 <table>
   <tr>
     <td align="center"><a href="http://tstechnologies.com.vn/"><img src="https://avatars1.githubusercontent.com/u/37669424?v=4" width="100px;" alt="tst"/><br /><sub><b>tst</b></sub></a><br /><a href="https://github.com/abramenal/cypress-shadow-dom/issues?q=author%3Asangmai350" title="Bug reports">🐛</a></td>
+    <td align="center"><a href="http://joshuadelange.com"><img src="https://avatars3.githubusercontent.com/u/525349?v=4" width="100px;" alt="Joshua de Lange"/><br /><sub><b>Joshua de Lange</b></sub></a><br /><a href="https://github.com/abramenal/cypress-shadow-dom/issues?q=author%3Ajoshuadelange" title="Bug reports">🐛</a></td>
   </tr>
 </table>
 
