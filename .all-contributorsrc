@@ -9,6 +9,16 @@
   "imageSize": 100,
   "commit": true,
   "commitConvention": "none",
-  "contributors": [],
+  "contributors": [
+    {
+      "login": "sangmai350",
+      "name": "tst",
+      "avatar_url": "https://avatars1.githubusercontent.com/u/37669424?v=4",
+      "profile": "http://tstechnologies.com.vn/",
+      "contributions": [
+        "bug"
+      ]
+    }
+  ],
   "contributorsPerLine": 7
 }
