@@ -60,4 +60,10 @@ describe('Todo List', () => {
         expect($el.value).to.equal(QUERY);
       });
   });
+
+  it('finds asynchronously added shadow DOM element', () => {
+    cy.shadowGet('todo-list-item', { timeout: 6000 })
+      .shadowFind('label')
+      .shadowContains('async item');
+  });
 });
