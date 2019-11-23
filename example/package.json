@@ -15,7 +15,7 @@
   },
   "devDependencies": {
     "cypress": "^3.3.1",
-    "cypress-shadow-dom": "0.1.0",
+    "cypress-shadow-dom": "^1.2.0",
     "eslint": "^5.16.0",
     "eslint-config-airbnb-base": "^13.1.0",
     "eslint-plugin-cypress": "^2.2.1",
