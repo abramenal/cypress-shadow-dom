@@ -60,10 +60,14 @@ Here's a set of available commands:
 Querying shadow DOM elements is made with:
 
 ```javascript
-cy.shadowGet(selector);
+cy.shadowGet(selector, options);
 ```
 
 - `{String} selector` – a single selector which usually represents root shadow DOM elements you want to start with
+
+- `{Object?} options` – (optional) contains following properties:
+
+  - `{Number?} timeout` – (optional) time, in milliseconds, to wait until most DOM based commands are considered timed out (defaults to 4000)
 
 This command returns `shadowSubject` that is a valid subject to execute any command below.
 
@@ -72,10 +76,14 @@ This command returns `shadowSubject` that is a valid subject to execute any comm
 Additional querying within found shadow DOM elements:
 
 ```javascript
-shadowSubject.shadowFind(selector);
+shadowSubject.shadowFind(selector, options);
 ```
 
 - `{String} selector` – a single selector which helps to get nested shadow DOM element under the root element
+
+- `{Object?} options` – (optional) contains following properties:
+
+  - `{Number?} timeout` – (optional) time, in milliseconds, to wait until most DOM based commands are considered timed out (defaults to 4000)
 
 Example:
 
@@ -85,22 +93,44 @@ cy.shadowGet('todo-list').shadowFind('todo-form');
 
 This command returns `shadowSubject` that is a valid subject to execute any command below.
 
+In order to set a custom timeout for dynamically loaded elements that appear later than 4 seconds after render, use custom timeout:
+
+```javascript
+cy.shadowGet('todo-list').shadowFind('todo-form', { timeout: 8500 });
+```
+
 ### shadowEq
 
 To take the nth element from found shadow DOM collection:
 
 ```javascript
-shadowSubject.shadowEq(index);
+shadowSubject.shadowEq(index, options);
 ```
 
 - `{Number} index` – a positive or negative number within given collection range
+
+- `{Object?} options` – (optional) contains following properties:
+
+  - `{Number?} timeout` – (optional) time, in milliseconds, to wait until most DOM based commands are considered timed out (defaults to 4000)
 
 ### shadowFirst
 
 To take the first element from found shadow DOM collection:
 
 ```javascript
-shadowSubject.shadowFirst();
+shadowSubject.shadowFirst(options);
+```
+
+- `{Object?} options` – (optional) contains following properties:
+
+  - `{Number?} timeout` – (optional) time, in milliseconds, to wait until most DOM based commands are considered timed out (defaults to 4000)
+
+So, simply:
+
+```javascript
+cy.shadowGet('todo-list')
+  .shadowFind('todo-form')
+  .shadowFirst();
 ```
 
 ### shadowLast
@@ -108,34 +138,43 @@ shadowSubject.shadowFirst();
 To take the last element from found shadow DOM collection:
 
 ```javascript
-shadowSubject.shadowLast();
+shadowSubject.shadowLast(options);
 ```
+
+- `{Object?} options` – (optional) contains following properties:
+
+  - `{Number?} timeout` – (optional) time, in milliseconds, to wait until most DOM based commands are considered timed out (defaults to 4000)
 
 ### shadowContains
 
 To validate some element's text content:
 
 ```javascript
-shadowSubject.shadowContains(content);
+shadowSubject.shadowContains(content, options);
 ```
 
 - `{String} content` – a string containing any text for lookup
+
+- `{Object?} options` – (optional) contains following properties:
+
+  - `{Number?} timeout` – (optional) time, in milliseconds, to wait until most DOM based commands are considered timed out (defaults to 4000)
 
 ### shadowTrigger
 
 To trigger any event:
 
 ```javascript
-shadowSubject.shadowTrigger(eventName, eventOptions);
+shadowSubject.shadowTrigger(eventName, options);
 ```
 
 - `{String} eventName` – a string containing any text for lookup
-- `{Object?} eventOptions` contains:
-  - `{Boolean?} log`
+
+- `{Object?} options` – (optional) contains following properties:
+
+  - `{Number?} timeout` – (optional) time, in milliseconds, to wait until most DOM based commands are considered timed out (defaults to 4000)
   - `{Boolean?} force`
   - `{Boolean?} bubbles`
   - `{Boolean?} cancelable`
-  - `{Number?} timeout`
   - `{Boolean?} composed`
 
 ### shadowClick
@@ -143,15 +182,15 @@ shadowSubject.shadowTrigger(eventName, eventOptions);
 A shorthand to trigger a click event:
 
 ```javascript
-shadowSubject.shadowClick(eventOptions);
+shadowSubject.shadowClick(options);
 ```
 
-- `{Object?} eventOptions` contains:
-  - `{Boolean?} log`
+- `{Object?} options` – (optional) contains following properties:
+
+  - `{Number?} timeout` – (optional) time, in milliseconds, to wait until most DOM based commands are considered timed out (defaults to 4000)
   - `{Boolean?} force`
   - `{Boolean?} bubbles`
   - `{Boolean?} cancelable`
-  - `{Number?} timeout`
   - `{Boolean?} composed`
 
 ### shadowType
@@ -159,10 +198,14 @@ shadowSubject.shadowClick(eventOptions);
 Types some text content inside given shadow DOM input control:
 
 ```javascript
-shadowSubject.shadowType(content);
+shadowSubject.shadowType(content, options);
 ```
 
 - `{String} content` – a string containing any text
+
+- `{Object?} options` – (optional) contains following properties:
+
+  - `{Number?} timeout` – (optional) time, in milliseconds, to wait until most DOM based commands are considered timed out (defaults to 4000)
 
 ## Contributors
 
