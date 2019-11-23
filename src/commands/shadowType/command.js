@@ -1,20 +1,15 @@
-import { validateText } from './validators';
-import { DEFAULT_OPTIONS } from './constants';
-import { validateOptions, validateSubject } from '../../validators';
+import { validateOptions, validateSubject, validateText } from '../../validators';
+import { DEFAULT_INPUT_TYPING_OPTIONS } from '../../constants';
 
-export default (subject, text, options = {}) =>
-  Cypress.cy.document({ log: false }).then(async document => {
-    validateSubject(subject);
-    validateText(text);
-    validateOptions(options, DEFAULT_OPTIONS);
+export default (subject, text, options = {}) => {
+  Cypress._.defaults(options, DEFAULT_INPUT_TYPING_OPTIONS);
+  validateSubject(subject);
+  validateText(text);
+  validateOptions(options, DEFAULT_INPUT_TYPING_OPTIONS);
 
-    const processingOpts = {
-      ...DEFAULT_OPTIONS,
-      ...options,
-    };
+  const { delay } = options;
 
-    const { delay } = processingOpts;
-
+  return Cypress.cy.document({ log: false }).then(async document => {
     Cypress.log({
       name: 'shadowType',
       message: text,
@@ -52,3 +47,4 @@ export default (subject, text, options = {}) =>
       }),
     ).then(() => subject);
   });
+};

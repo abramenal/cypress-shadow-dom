@@ -1,14 +1,20 @@
-import { validateElement, validateSubject } from '../../validators';
+import { validateOptions, validateSubject } from '../../validators';
+import { resolveValue } from '../../helpers';
+import { DEFAULT_COMMAND_OPTIONS } from '../../constants';
 
-export default function shadowLast(subject) {
+export default function shadowLast(subject, options = {}) {
+  Cypress._.defaults(options, DEFAULT_COMMAND_OPTIONS);
   validateSubject(subject);
+  validateOptions(options, DEFAULT_COMMAND_OPTIONS);
 
-  const element = subject[subject.length - 1];
-  validateElement(element);
+  const elGetter = () => subject[subject.length - 1];
 
-  Cypress.log({
-    name: 'shadowLast',
+  return resolveValue(elGetter, options).then(element => {
+    Cypress.log({
+      name: 'shadowLast',
+      consoleProps: () => ({ element }),
+    });
+
+    return element;
   });
-
-  return Cypress.cy.wrap(element, { log: false });
 }

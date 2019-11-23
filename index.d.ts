@@ -1,28 +1,30 @@
 /// <reference types="cypress" />
 
 declare namespace Cypress {
-  type EventOptions = {
-    log?: Boolean;
+  type ShadowCommandOptions = {
+    timeout?: Number;
+  };
+
+  type ShadowEventOptios = {
     force?: Boolean;
     bubbles?: Boolean;
     cancelable?: Boolean;
-    timeout?: Number;
     composed?: Boolean;
   };
 
-  type CommandOptions = {
-    timeout?: Number;
+  type ShadowInputTypingOptions = {
+    delay?: Number;
   };
 
   interface Chainable<Subject> {
-    shadowClick(options?: EventOptions): Chainable<Subject>;
-    shadowContains(content: string): Chainable<Subject>;
-    shadowEq(index: number): Chainable<Subject>;
+    shadowClick(options?: ShadowEventOptios): Chainable<Subject>;
+    shadowContains(content: string, options?: ShadowCommandOptions): Chainable<Subject>;
+    shadowEq(index: number, options?: ShadowCommandOptions): Chainable<Subject>;
     shadowFind(selector: string, options?: CommandOptions): Chainable<Subject>;
-    shadowFirst(): Chainable<Subject>;
+    shadowFirst(options?: CommandOptions): Chainable<Subject>;
     shadowGet(selector: string, options?: CommandOptions): Chainable<Subject>;
-    shadowLast(): Chainable<Subject>;
-    shadowTrigger(eventName: string, eventOptions?: EventOptions): Chainable<Subject>;
-    shadowType(content: string): Chainable<Subject>;
+    shadowLast(options?: CommandOptions): Chainable<Subject>;
+    shadowTrigger(eventName: string, options?: ShadowEventOptios): Chainable<Subject>;
+    shadowType(content: string, options?: ShadowInputTypingOptions): Chainable<Subject>;
   }
 }
