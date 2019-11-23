@@ -1,20 +1,25 @@
-import { validateIndex } from './validators';
-import { validateElement, validateSubject } from '../../validators';
+import { validateNumberInRange, validateOptions, validateSubject } from '../../validators';
+import { resolveValue } from '../../helpers';
+import { DEFAULT_COMMAND_OPTIONS } from '../../constants';
 
-export default function shadowEq(subject, index) {
+export default function shadowEq(subject, index, options = {}) {
+  Cypress._.defaults(options, DEFAULT_COMMAND_OPTIONS);
   validateSubject(subject);
-  validateIndex(index, subject.length);
+  validateNumberInRange(index, [-subject.length, +subject.length]);
+  validateOptions(options, DEFAULT_COMMAND_OPTIONS);
 
-  const element = subject[index < 0 ? subject.length + index : index];
-  validateElement(element);
+  const elGetter = () => subject[index < 0 ? subject.length + index : index];
 
-  Cypress.log({
-    name: 'shadowEq',
-    message: `':nth-child(${index})'`,
-    consoleProps: () => ({
-      index,
-    }),
+  return resolveValue(elGetter, options).then(element => {
+    Cypress.log({
+      name: 'shadowEq',
+      message: `':nth-child(${index})'`,
+      consoleProps: () => ({
+        index,
+        element,
+      }),
+    });
+
+    return element;
   });
-
-  return Cypress.cy.wrap(element, { log: false });
 }

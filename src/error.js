@@ -23,17 +23,13 @@ export const ERR_TYPES = {
     message: 'Selecting by alias is not supported',
     tip: 'You must use only string-based selectors',
   },
-  INVALID_INDEX: {
-    message: 'Index is not valid',
-    tip: 'It should be a positive or negative number within a range of the items collection',
+  INVALID_INDEX_NUMBER: {
+    message: 'Index number is not valid',
+    tip: 'It should be a positive or negative number within a range of collection',
   },
-  INVALID_TEXT: {
-    message: 'Text is not valid',
-    tip: 'Text is a string containing at least one symbol',
-  },
-  ELEMENT_NOT_FOUND: {
-    message: 'Error: element not found',
-    tip: 'Check provided lookup conditions',
+  INVALID_TEXT_CONTENT: {
+    message: 'Text content is not valid',
+    tip: 'Text content is a string containing at least one symbol',
   },
 };
 

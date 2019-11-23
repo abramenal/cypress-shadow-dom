@@ -1,16 +1,12 @@
 import { validateOptions, validateSubject } from '../../validators';
 import { validateEventName } from './validators';
-import { DEFAULT_OPTIONS } from './constants';
+import { DEFAULT_EVENT_OPTIONS } from '../../constants';
 
 export default function shadowTrigger(subject, eventName, options = {}) {
+  Cypress._.defaults(options, DEFAULT_EVENT_OPTIONS);
   validateSubject(subject);
   validateEventName(eventName);
-  validateOptions(options, DEFAULT_OPTIONS);
-
-  const eventOpts = {
-    ...DEFAULT_OPTIONS,
-    ...options,
-  };
+  validateOptions(options, DEFAULT_EVENT_OPTIONS);
 
   Cypress.log({
     name: 'shadowTrigger',
@@ -20,7 +16,7 @@ export default function shadowTrigger(subject, eventName, options = {}) {
     }),
   });
 
-  const event = new CustomEvent(eventName, eventOpts);
+  const event = new CustomEvent(eventName, options);
   subject[0].dispatchEvent(event);
 
   return subject;
