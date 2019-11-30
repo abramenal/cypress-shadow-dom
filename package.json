@@ -1,6 +1,6 @@
 {
   "name": "cypress-shadow-dom",
-  "version": "1.2.0",
+  "version": "1.2.1",
   "description": "Extend Cypress commands with shadow DOM support",
   "keywords": [
     "cypress",
