@@ -171,7 +171,6 @@ shadowSubject.shadowTrigger(eventName, options);
 
 - `{Object?} options` – (optional) contains following properties:
 
-  - `{Number?} timeout` – (optional) time, in milliseconds, to wait until most DOM based commands are considered timed out (defaults to 4000)
   - `{Boolean?} force`
   - `{Boolean?} bubbles`
   - `{Boolean?} cancelable`
@@ -187,7 +186,6 @@ shadowSubject.shadowClick(options);
 
 - `{Object?} options` – (optional) contains following properties:
 
-  - `{Number?} timeout` – (optional) time, in milliseconds, to wait until most DOM based commands are considered timed out (defaults to 4000)
   - `{Boolean?} force`
   - `{Boolean?} bubbles`
   - `{Boolean?} cancelable`
@@ -205,7 +203,7 @@ shadowSubject.shadowType(content, options);
 
 - `{Object?} options` – (optional) contains following properties:
 
-  - `{Number?} timeout` – (optional) time, in milliseconds, to wait until most DOM based commands are considered timed out (defaults to 4000)
+  - `{Number?} delay` – (optional) time, in milliseconds, between adding each letter/char (defaults to 10)
 
 ## Contributors
 
