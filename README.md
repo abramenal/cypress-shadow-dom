@@ -210,15 +210,19 @@ shadowSubject.shadowType(content, options);
 Thanks goes to these wonderful people ([emoji key](https://allcontributors.org/docs/en/emoji-key)):
 
 <!-- ALL-CONTRIBUTORS-LIST:START - Do not remove or modify this section -->
-<!-- prettier-ignore -->
+<!-- prettier-ignore-start -->
+<!-- markdownlint-disable -->
 <table>
   <tr>
     <td align="center"><a href="http://tstechnologies.com.vn/"><img src="https://avatars1.githubusercontent.com/u/37669424?v=4" width="100px;" alt="tst"/><br /><sub><b>tst</b></sub></a><br /><a href="https://github.com/abramenal/cypress-shadow-dom/issues?q=author%3Asangmai350" title="Bug reports">🐛</a></td>
     <td align="center"><a href="http://joshuadelange.com"><img src="https://avatars3.githubusercontent.com/u/525349?v=4" width="100px;" alt="Joshua de Lange"/><br /><sub><b>Joshua de Lange</b></sub></a><br /><a href="https://github.com/abramenal/cypress-shadow-dom/issues?q=author%3Ajoshuadelange" title="Bug reports">🐛</a></td>
     <td align="center"><a href="https://github.com/culas"><img src="https://avatars0.githubusercontent.com/u/8446762?v=4" width="100px;" alt="Lucas Schnüriger"/><br /><sub><b>Lucas Schnüriger</b></sub></a><br /><a href="https://github.com/abramenal/cypress-shadow-dom/commits?author=culas" title="Code">💻</a></td>
+    <td align="center"><a href="https://www.linkedin.com/in/mandric"><img src="https://avatars0.githubusercontent.com/u/25641?v=4" width="100px;" alt="Milan Andric"/><br /><sub><b>Milan Andric</b></sub></a><br /><a href="https://github.com/abramenal/cypress-shadow-dom/commits?author=mandric" title="Documentation">📖</a> <a href="#ideas-mandric" title="Ideas, Planning, & Feedback">🤔</a></td>
   </tr>
 </table>
 
+<!-- markdownlint-enable -->
+<!-- prettier-ignore-end -->
 <!-- ALL-CONTRIBUTORS-LIST:END -->
 
 This project follows the [all-contributors](https://github.com/all-contributors/all-contributors) specification. Contributions of any kind welcome!
