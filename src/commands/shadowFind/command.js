@@ -9,10 +9,18 @@ export default function shadowFind(subject, selector, options = {}) {
   validateOptions(options, DEFAULT_COMMAND_OPTIONS);
 
   const elGetter = () => {
-    const currentElement = subject[0].shadowRoot || subject[0];
-    const found = currentElement.querySelectorAll(selector);
+    const found = Cypress.$(selector, subject);
 
-    return found;
+    if (found.length) {
+      return found;
+    }
+
+    return Array.from(subject).reduce((result, sub) => {
+      if (sub.shadowRoot) {
+        return result.add(selector, sub.shadowRoot);
+      }
+      return result;
+    }, Cypress.$([]));
   };
 
   return resolveValue(elGetter, options).then(foundElements => {
