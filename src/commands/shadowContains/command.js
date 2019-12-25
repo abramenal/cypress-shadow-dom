@@ -8,18 +8,21 @@ export default function shadowContains(subject, content, options = {}) {
   validateText(content);
   validateOptions(options, DEFAULT_COMMAND_OPTIONS);
 
+  const selector = `:contains(${content})`;
+
   const elGetter = () => {
-    /**
-     * shadowContains should both work with shadow'ish and regular DOM elements
-     */
-    const baseElement = subject[0].shadowRoot || subject[0];
+    const found = Cypress.$(selector, subject);
 
-    /**
-     * shadowContains should also check subject's text content
-     */
-    const rawElementsList = [baseElement, ...baseElement.querySelectorAll('*')];
+    if (found.length) {
+      return found;
+    }
 
-    return rawElementsList.find(rawEl => rawEl && RegExp(content, 'i').test(rawEl.innerText));
+    return Array.from(subject).reduce((result, sub) => {
+      if (sub.shadowRoot) {
+        return result.add(selector, sub.shadowRoot);
+      }
+      return result;
+    }, Cypress.$([]));
   };
 
   return resolveValue(elGetter, options).then(element => {
