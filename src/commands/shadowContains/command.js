@@ -11,7 +11,7 @@ export default function shadowContains(subject, content, options = {}) {
   const selector = `:contains(${content})`;
 
   const elGetter = () => {
-    const found = Cypress.$(selector, subject);
+    const found = subject.is(selector) ? subject : Cypress.$(selector, subject);
 
     if (found.length) {
       return found;
