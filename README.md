@@ -6,6 +6,8 @@ Extend Cypress commands with shadow DOM support
 
 This package adds a custom [Cypress][cypress] command that allows you to make an abstraction on how exactly you upload files through you HTML controls and focus on testing the functionality.
 
+## As of now, this package is looking for contributors help in adopting most common use cases for testing shadow dom components
+
 ## Table of Contents
 
 - [Installation](#installation)
