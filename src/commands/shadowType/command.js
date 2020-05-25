@@ -35,16 +35,30 @@ export default (subject, text, options = {}) => {
 
           /* eslint-disable-next-line no-param-reassign */
           subject[0].value += char;
-          const changeEvent = new Event('change', {
+          const inputEvent = new Event('input', {
             bubbles: true,
             cancelable: true,
             composed: true,
           });
-          subject[0].dispatchEvent(changeEvent);
+          subject[0].dispatchEvent(inputEvent);
 
           setTimeout(resolve, delay);
         });
       }),
-    ).then(() => subject);
+    )
+      .then(
+        () =>
+          new Promise(resolve => {
+            const changeEvent = new Event('change', {
+              bubbles: true,
+              cancelable: true,
+              composed: true,
+            });
+            subject[0].dispatchEvent(changeEvent);
+
+            setTimeout(resolve, delay);
+          }),
+      )
+      .then(() => subject);
   });
 };
