@@ -17,7 +17,15 @@ export default function shadowFind(subject, selector, options = {}) {
 
     return Array.from(subject).reduce((result, sub) => {
       if (sub.shadowRoot) {
-        return result.add(selector, sub.shadowRoot);
+        const childEl = [].map.call(sub.shadowRoot.children, el => Cypress.$(el)).find(el => el.is(selector));
+
+        if (childEl && childEl.length) {
+          return result.add(childEl);
+        }
+
+        const f = Cypress.$(sub.shadowRoot.children).find(selector);
+
+        return result.add(f);
       }
       return result;
     }, Cypress.$([]));
