@@ -1,4 +1,4 @@
-# cypress-shadow-dom
+# (deprecated) cypress-shadow-dom
 
 [![GitHub license](https://img.shields.io/badge/license-MIT-blue.svg)](https://github.com/abramenal/cypress-shadow-dom/blob/master/LICENSE) [![npm version](https://img.shields.io/npm/v/cypress-shadow-dom.svg?style=flat&color=important)](https://www.npmjs.com/package/cypress-shadow-dom) [![All Contributors](https://img.shields.io/badge/all_contributors-3-orange.svg?style=flat-square)](#contributors)
 
@@ -6,7 +6,12 @@ Extend Cypress commands with shadow DOM support
 
 This package adds a custom [Cypress][cypress] command that allows you to make an abstraction on how exactly you upload files through you HTML controls and focus on testing the functionality.
 
-## As of now, this package is looking for contributors help in adopting most common use cases for testing shadow dom components
+Project reached its dead end because of [recent feature introduced by @43081j][https://github.com/cypress-io/cypress/pull/7469]
+(and reference issue [cypress/issues/144][https://github.com/cypress-io/cypress/issues/144]).
+
+Please consider using this experimental built-in feature as well as submitting issues and code contributions there.
+
+Warmest thanks for all the contributors that helped this project evolve!
 
 ## Table of Contents
 
